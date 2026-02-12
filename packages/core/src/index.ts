@@ -1,6 +1,11 @@
 export {
-  ReactDragDrop,
-  ReactDragDropProps
+  type ReactDragDropProps,
+  ReactDragDrop
 } from './components';
+
+export {
+  type UseDraggableProps,
+  useDraggable
+} from './hooks';
 
 export * from './Button';

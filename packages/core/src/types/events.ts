@@ -3,5 +3,10 @@ interface RDDDragEvent {
 
 }
 
-export interface RDDDragEndEvent extends RDDDragEvent {}
-export interface RDDDragStartEvent extends RDDDragEvent {}
+interface RDDDragEndEvent extends RDDDragEvent {}
+interface RDDDragStartEvent extends RDDDragEvent {}
+
+export {
+  type RDDDragEndEvent,
+  type RDDDragStartEvent
+}

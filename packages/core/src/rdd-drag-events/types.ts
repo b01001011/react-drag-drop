@@ -3,20 +3,27 @@ import {
   RDDDragStartEvent
 } from '../types';
 
-export interface RDDDragEventsListener {
+interface RDDDragEventsListener {
   onDragEnd?(event: RDDDragEndEvent): void;
   onDragStart?(event: RDDDragStartEvent): void;
 }
 
-export interface RDDDragEvent {
+interface RDDDragEvent {
   type: keyof RDDDragEventsListener;
   event: 
     | RDDDragEndEvent
     | RDDDragStartEvent;
 }
 
-export type RDDUnregisterListener = () => void;
+type RDDUnregisterListener = () => void;
 
-export type RDDRegisterListener = (
+type RDDRegisterListener = (
   listener: RDDDragEventsListener
 ) => RDDUnregisterListener;
+
+export {
+  type RDDDragEventsListener,
+  type RDDDragEvent,
+  type RDDUnregisterListener,
+  type RDDRegisterListener
+}

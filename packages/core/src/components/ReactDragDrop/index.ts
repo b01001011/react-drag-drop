@@ -1,4 +1,4 @@
 export {
-  ReactDragDrop,
-  ReactDragDropProps
+  type ReactDragDropProps,
+  ReactDragDrop
 } from './ReactDragDrop';

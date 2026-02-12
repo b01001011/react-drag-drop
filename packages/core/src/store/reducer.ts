@@ -4,7 +4,9 @@ import type { State } from './types';
 export function getInitialState(): State {
   return {
     draggable: {
-
+      id: null,
+      coordinates: {x: 0, y: 0},
+      translate: {x: 0, y: 0}
     },
     droppable: {
 

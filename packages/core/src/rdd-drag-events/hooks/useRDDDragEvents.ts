@@ -5,7 +5,7 @@ import {
   RDDRegisterListener 
 } from '../types';
 
-export const useRDDDragEvents = () => {
+const useRDDDragEvents = () => {
   const [listeners] = useState(() => {
     return new Set<RDDDragEventsListener>();
   });
@@ -24,4 +24,8 @@ export const useRDDDragEvents = () => {
   }, [listeners]);
 
   return [dispatch, registerListener] as const;
+}
+
+export { 
+  useRDDDragEvents 
 }
