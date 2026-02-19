@@ -10,7 +10,8 @@ export function getInitialState(): State {
     },
     droppable: {
 
-    }
+    },
+    draggables: new Map()
   };
 }
 

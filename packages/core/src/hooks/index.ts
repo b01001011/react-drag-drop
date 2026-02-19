@@ -1,4 +1,4 @@
 export {
-  type UseDraggableProps,
-  useDraggable
-} from './useDraggable';
+  type UseRddDraggableProps,
+  useRddDraggable
+} from './useRddDraggable';

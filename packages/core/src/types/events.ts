@@ -1,12 +1,14 @@
-
-interface RDDDragEvent {
+interface RddDragEvent {
 
 }
 
-interface RDDDragEndEvent extends RDDDragEvent {}
-interface RDDDragStartEvent extends RDDDragEvent {}
+interface RddDragEndEvent extends RddDragEvent {}
+interface RddDragStartEvent extends RddDragEvent {}
+
+type RddSyntheticHandlerProps = Record<string, (event: React.SyntheticEvent) => void>;
 
 export {
-  type RDDDragEndEvent,
-  type RDDDragStartEvent
+  type RddDragEndEvent,
+  type RddDragStartEvent,
+  type RddSyntheticHandlerProps
 }

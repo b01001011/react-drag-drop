@@ -4,8 +4,8 @@ export {
 } from './components';
 
 export {
-  type UseDraggableProps,
-  useDraggable
+  type UseRddDraggableProps,
+  useRddDraggable
 } from './hooks';
 
 export * from './Button';

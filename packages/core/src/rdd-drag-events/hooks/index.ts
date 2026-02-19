@@ -1,3 +1,3 @@
 export {
-  useRDDDragEvents
-} from './useRDDDragEvents';
+  useRddDragEvents
+} from './useRddDragEvents';

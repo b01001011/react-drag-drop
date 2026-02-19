@@ -1,5 +1,5 @@
-type RDDID = string;
+type RddId = string;
 
 export {
-  type RDDID
+  type RddId
 }

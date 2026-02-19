@@ -1,12 +1,13 @@
 export {
-  RDDID
+  type RddId
 } from './common';
 
 export {
-  RDDCoordinates,
+  type RddCoordinates,
 } from './coordinates';
 
 export {
-  RDDDragEndEvent,
-  RDDDragStartEvent
+  type RddDragEndEvent,
+  type RddDragStartEvent,
+  type RddSyntheticHandlerProps
 } from './events';

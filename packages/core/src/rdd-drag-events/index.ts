@@ -1,3 +1,7 @@
 export {
-  useRDDDragEvents
+  RddDragEventsContext
+} from './contexts';
+
+export {
+  useRddDragEvents
 } from './hooks';

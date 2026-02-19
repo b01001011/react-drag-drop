@@ -1,16 +1,21 @@
-import {
-  RDDDragEventsContext
-} from '../../contexts';
-
 import { 
   memo,
+  useMemo,
   useReducer
 } from 'react';
 
-import { reducer, getInitialState } from '../../store';
+import { 
+  type RddPrivateStateContextValue,
+  type RddPublicStateContextValue,
+  RddPrivateStateContext,
+  RddPublicStateContext,
+  reducer, 
+  getInitialState
+} from '../../store';
 
 import {
-  useRDDDragEvents
+  RddDragEventsContext,
+  useRddDragEvents,
 } from '../../rdd-drag-events';
 
 interface ReactDragDropProps {
@@ -23,20 +28,41 @@ const ReactDragDrop = memo(({
   children    
 }: ReactDragDropProps) => {
   const [state, dispatch] = useReducer(reducer, undefined, getInitialState);
-  const [dispatchRDDDragEvent, registerRDDDragEventsListener] = useRDDDragEvents();
+  const [dispatchRDDDragEvent, registerRDDDragEventsHandler] = useRddDragEvents();
   
   console.log(id, state, dispatch, dispatchRDDDragEvent);
   const {
     draggable: {id: activeId},
     droppable: {},
+    draggables
   } = state;
 
   console.log(activeId);
 
+  const privateStateContextValue = useMemo(() => {
+    const value: RddPrivateStateContextValue = {
+      draggables
+    };
+    return value;
+  }, [
+  ]);
+
+  const publicStateContextValue = useMemo(() => {
+    const value: RddPublicStateContextValue = {
+      
+    };
+    return value;
+  }, [
+  ]);
+
   return (
-    <RDDDragEventsContext.Provider value={registerRDDDragEventsListener}>
-      { children }
-    </RDDDragEventsContext.Provider>
+    <RddDragEventsContext.Provider value={registerRDDDragEventsHandler}>
+      <RddPrivateStateContext.Provider value={privateStateContextValue}>
+        <RddPublicStateContext.Provider value={publicStateContextValue}>
+          { children }
+        </RddPublicStateContext.Provider>
+      </RddPrivateStateContext.Provider>
+    </RddDragEventsContext.Provider>
   )
 });
 

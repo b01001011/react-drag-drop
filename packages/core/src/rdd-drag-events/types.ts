@@ -1,29 +1,29 @@
 import {
-  RDDDragEndEvent,
-  RDDDragStartEvent
+  RddDragEndEvent,
+  RddDragStartEvent
 } from '../types';
 
-interface RDDDragEventsListener {
-  onDragEnd?(event: RDDDragEndEvent): void;
-  onDragStart?(event: RDDDragStartEvent): void;
+interface RddDragEventsHandler {
+  onDragEnd?(event: RddDragEndEvent): void;
+  onDragStart?(event: RddDragStartEvent): void;
 }
 
-interface RDDDragEvent {
-  type: keyof RDDDragEventsListener;
+interface RddDragEvent {
+  type: keyof RddDragEventsHandler;
   event: 
-    | RDDDragEndEvent
-    | RDDDragStartEvent;
+    | RddDragEndEvent
+    | RddDragStartEvent;
 }
 
-type RDDUnregisterListener = () => void;
+type RddUnregisterHandler = () => void;
 
-type RDDRegisterListener = (
-  listener: RDDDragEventsListener
-) => RDDUnregisterListener;
+type RddRegisterHandler = (
+  handler: RddDragEventsHandler
+) => RddUnregisterHandler;
 
 export {
-  type RDDDragEventsListener,
-  type RDDDragEvent,
-  type RDDUnregisterListener,
-  type RDDRegisterListener
+  type RddDragEventsHandler,
+  type RddDragEvent,
+  type RddUnregisterHandler,
+  type RddRegisterHandler
 }

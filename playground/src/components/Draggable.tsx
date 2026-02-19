@@ -2,14 +2,15 @@ import {
   type FC 
 } from 'react'
 
-import { useDraggable } from '@react-drag-drop/core'
+import { useRddDraggable } from '@react-drag-drop/core'
 
 const Draggable: FC<{}> = () => {
-  const { setElementRef } = useDraggable({id: 'draggable'});
+  const { setElementRef, handlerProps } = useRddDraggable({id: 'draggable'});
 
   return (
     <button
       ref={setElementRef}
+      {...handlerProps}
     >
       Draggable
     </button>

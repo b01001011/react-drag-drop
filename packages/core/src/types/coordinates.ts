@@ -1,8 +1,8 @@
-type RDDCoordinates = {
+type RddCoordinates = {
   x: number;
   y: number;
 };
 
 export {
-  type RDDCoordinates
+  type RddCoordinates
 }
