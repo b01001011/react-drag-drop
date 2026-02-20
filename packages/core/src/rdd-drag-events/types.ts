@@ -15,15 +15,15 @@ interface RddDragEvent {
     | RddDragStartEvent;
 }
 
-type RddUnregisterHandler = () => void;
+type RddUnregisterListener = () => void;
 
-type RddRegisterHandler = (
+type RddRegisterListener = (
   handler: RddDragEventsHandler
-) => RddUnregisterHandler;
+) => RddUnregisterListener;
 
 export {
   type RddDragEventsHandler,
   type RddDragEvent,
-  type RddUnregisterHandler,
-  type RddRegisterHandler
+  type RddRegisterListener,
+  type RddUnregisterListener
 }

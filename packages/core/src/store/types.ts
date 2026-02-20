@@ -3,13 +3,13 @@ import {
   RddId
 } from '../types';
 
-export type Draggable = {
+type RddDraggable = {
   id: RddId;
   key: RddId;
   elementRef: React.RefObject<HTMLElement | null>;
 };
 
-export interface State {
+interface State {
   draggable: {
     id: RddId | null;
     coordinates: RddCoordinates;
@@ -18,6 +18,10 @@ export interface State {
   droppable: {
 
   };
-  draggables: Map<RddId, Draggable | undefined>;
+  draggables: Map<RddId, RddDraggable | undefined>;
 }
 
+export {
+  type RddDraggable,
+  type State
+}

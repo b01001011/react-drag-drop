@@ -1,4 +1,4 @@
 import { createContext } from 'react';
-import type { RddRegisterHandler } from './types';
+import type { RddRegisterListener } from './types';
 
-export const RddDragEventsContext = createContext<RddRegisterHandler | null>(null);
+export const RddDragEventsContext = createContext<RddRegisterListener | null>(null);

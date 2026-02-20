@@ -11,5 +11,6 @@ export {
 } from './reducer';
 
 export {
+  type RddDraggable,
   type State
 } from './types';

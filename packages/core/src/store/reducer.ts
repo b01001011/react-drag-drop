@@ -1,7 +1,7 @@
 import { Action, Actions } from './actions';
 import type { State } from './types';
 
-export function getInitialState(): State {
+function getInitialState(): State {
   return {
     draggable: {
       id: null,
@@ -15,7 +15,7 @@ export function getInitialState(): State {
   };
 }
 
-export function reducer(state: State, action: Actions): State {
+function reducer(state: State, action: Actions): State {
   switch(action.type) {
     case Action.Drag:
       return {
@@ -41,3 +41,8 @@ export function reducer(state: State, action: Actions): State {
       return state;
   }
 }
+
+export {
+  getInitialState,
+  reducer
+};

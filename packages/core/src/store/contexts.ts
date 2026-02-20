@@ -1,17 +1,20 @@
 import { createContext } from 'react';
 import {
-  Draggable
+  RddDraggable
 } from './types';
 
 import { 
-  RddId
+  RddId,
+  RddSyntheticEventListener
 } from '../types';
 
 interface RddPrivateStateContextValue {
-   draggables: Map<RddId, Draggable | undefined>;
+  activators: RddSyntheticEventListener[];
+  draggables: Map<RddId, RddDraggable | undefined>;
 }
 
 const RddPrivateStateContext = createContext<RddPrivateStateContextValue>({
+  activators: [],
   draggables: new Map()
 });
 

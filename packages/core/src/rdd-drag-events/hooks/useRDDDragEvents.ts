@@ -2,28 +2,28 @@ import { useCallback, useState } from 'react';
 import { 
   RddDragEvent, 
   RddDragEventsHandler,
-  RddRegisterHandler 
+  RddRegisterListener 
 } from '../types';
 
 const useRddDragEvents = () => {
-  const [listeners] = useState(() => {
+  const [handlers] = useState(() => {
     return new Set<RddDragEventsHandler>();
   });
 
   const dispatch = useCallback(({type, event}: RddDragEvent) => {
-    listeners.forEach((listener: RddDragEventsHandler) => {
+    handlers.forEach((listener: RddDragEventsHandler) => {
       return listener[type]?.(event)
     });
-  }, [listeners]);
+  }, [handlers]);
 
-  const registerHandler: RddRegisterHandler = useCallback((listener: RddDragEventsHandler) => {
-    listeners.add(listener);
+  const registerListener: RddRegisterListener = useCallback((handler: RddDragEventsHandler) => {
+    handlers.add(handler);
     return () => {
-      listeners.delete(listener);
+      handlers.delete(handler);
     };
-  }, [listeners]);
+  }, [handlers]);
 
-  return [dispatch, registerHandler] as const;
+  return [dispatch, registerListener] as const;
 }
 
 export { 

@@ -7,8 +7,8 @@ import {
 } from 'react';
 
 import { 
-  useRddSyntheticHandlerProps
-} from './useRddSyntheticHandlerProps';
+  useRddSyntheticEventListenerProps
+} from './useRddSyntheticEventListenerProps';
 
 import { RddPrivateStateContext } from '../store';
 
@@ -37,7 +37,7 @@ const useRddDraggable = ({
     []
   );
 
-  const handlerProps = useRddSyntheticHandlerProps(id);
+  const listenerProps = useRddSyntheticEventListenerProps(id);
   
   useLayoutEffect(
     () => {
@@ -56,7 +56,7 @@ const useRddDraggable = ({
   return {
     elementRef, 
     setElementRef,
-    handlerProps
+    listenerProps
   }
 }
 
