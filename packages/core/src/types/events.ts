@@ -9,6 +9,10 @@ interface RddDragEvent {
 interface RddDragEndEvent extends RddDragEvent {}
 interface RddDragStartEvent extends RddDragEvent {}
 
+interface RddEvent extends Event {
+  isConsumed: boolean;
+}
+
 type RddSyntheticEventName = keyof Pick<
   React.DOMAttributes<any>, 
   Exclude<keyof React.DOMAttributes<any>, 'children' | 'dangerouslySetInnerHTML'>
@@ -26,6 +30,8 @@ type RddSyntheticEventListenerProps = Record<string, (event: React.SyntheticEven
 export {
   type RddDragEndEvent,
   type RddDragStartEvent,
+  type RddEvent,
+  type RddSyntheticEventHandler,
   type RddSyntheticEventListener,
   type RddSyntheticEventListenerProps,
   type RddSyntheticEventName

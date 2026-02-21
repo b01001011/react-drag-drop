@@ -1,4 +1,8 @@
 export {
   type UseRddDraggableProps,
-  useRddDraggable
+  useRddDraggable,
 } from './useRddDraggable';
+
+export {
+  useRddSyntheticListeners
+} from './useRddSyntheticListeners'

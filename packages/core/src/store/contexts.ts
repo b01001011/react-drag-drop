@@ -9,12 +9,12 @@ import {
 } from '../types';
 
 interface RddPrivateStateContextValue {
-  activators: RddSyntheticEventListener[];
+  listeners: RddSyntheticEventListener[];
   draggables: Map<RddId, RddDraggable | undefined>;
 }
 
 const RddPrivateStateContext = createContext<RddPrivateStateContextValue>({
-  activators: [],
+  listeners: [],
   draggables: new Map()
 });
 

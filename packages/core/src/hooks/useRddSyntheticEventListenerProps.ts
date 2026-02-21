@@ -11,7 +11,7 @@ const useRddSyntheticEventListenerProps = (
   return useMemo(() => {
     return {} as RddSyntheticEventListenerProps
   }, [id]); 
-}
+};
 
 export {
   useRddSyntheticEventListenerProps

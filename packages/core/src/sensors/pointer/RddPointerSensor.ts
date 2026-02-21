@@ -1,13 +1,21 @@
 import {
-  type RddSensor
-} from '../types'
+  RddSensor,
+  RddSensorProps
+} from '../types';
 
 import {
   type RddSyntheticEventName
-} from '../../types'
+} from '../../types';
 
-class RddPointerSensor implements RddSensor {
-  activationEventNames = [ 'onPointerDown' ] as RddSyntheticEventName[];
+class RddPointerSensor extends RddSensor {
+  static activationEventNames = [ 'onPointerDown' ] as RddSyntheticEventName[];
+  
+  constructor(props: RddSensorProps) {
+    super();
+    
+    const { event } = props;
+    void event;
+  }
 }
 
 export {

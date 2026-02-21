@@ -1,9 +1,14 @@
 import { 
   memo,
+  useCallback,
   useMemo,
   useReducer,
   useRef
 } from 'react';
+
+import {
+  useRddSyntheticListeners
+} from '../../hooks';
 
 import { 
   type RddPrivateStateContextValue,
@@ -20,12 +25,14 @@ import {
 } from '../../rdd-drag-events';
 
 import {
+  RddSensorConstructor,
   RddPointerSensor
 } from '../../sensors';
 
 import {
   RddId,
-  RddSyntheticEventListener
+  RddEvent,
+  RddSyntheticEventHandler
 } from '../../types';
 
 interface ReactDragDropProps {
@@ -42,9 +49,9 @@ const ReactDragDrop = memo(({
   
   const activeDraggableIdRef = useRef<RddId | null>(null);
   // const activeDraggableElementRef
-  
-  const sensors = [RddPointerSensor];
-  console.log(id, state, dispatch, dispatchRDDDragEvent, sensors, activeDraggableIdRef);
+
+  const Sensors = [RddPointerSensor];
+  console.log(id, state, dispatch, dispatchRDDDragEvent);
 
   const {
     draggable: {id: activeId},
@@ -52,13 +59,64 @@ const ReactDragDrop = memo(({
     draggables
   } = state;
 
-  const activators: RddSyntheticEventListener[] = [];
+  const initSensor = useCallback(
+    (
+      event: React.SyntheticEvent,
+      Sensor: RddSensorConstructor
+    ) => {
+      if (activeDraggableIdRef.current == null) {
+        return;
+      }
+
+      const activeDraggable = draggables.get(activeDraggableIdRef.current);
+      if (activeDraggable == null) {
+        return;
+      }
+
+      const nativeEvent = event.nativeEvent;
+      
+      void nativeEvent;
+      void Sensor;
+    },
+    [draggables]
+  );
+
+  const makeSyntheticEventHandler = useCallback(
+    (
+      Sensor: RddSensorConstructor
+    ): RddSyntheticEventHandler => {
+      return (event, activeDraggableId) => {
+        const nativeEvent = event.nativeEvent as RddEvent;
+        const activeDraggable = draggables.get(activeDraggableId);
+
+        if (
+          activeDraggableIdRef.current != null ||
+          activeDraggable == null ||
+          nativeEvent.isConsumed ||
+          nativeEvent.defaultPrevented
+        ) {
+          return;
+        }
+
+        nativeEvent.isConsumed = true;
+
+        activeDraggableIdRef.current = activeDraggableId;
+        initSensor(event, Sensor);
+      };
+    },
+    [draggables, initSensor]
+  );
+
+  const listeners = useRddSyntheticListeners(
+    Sensors,
+    makeSyntheticEventHandler
+  );
 
   console.log(activeId);
 
   const privateStateContextValue = useMemo(() => {
     const value: RddPrivateStateContextValue = {
-      activators,
+      listeners,
       draggables
     };
     return value;

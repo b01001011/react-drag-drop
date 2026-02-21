@@ -1,7 +1,9 @@
 export {
-  type RddSensor
+  RddSensor,
+  RddSensorConstructor,
+  RddSensorProps,
 } from './types';
 
 export {
-  RddPointerSensor
+  RddPointerSensor,
 } from './pointer';
