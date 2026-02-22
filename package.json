@@ -6,8 +6,7 @@
   "description": "",
   "keywords": [],
   "scripts": {
-    "build": "npm run build:core",
-    "build:core": "npm run build -w packages/core",
+    "build": "npm run build --workspaces",
     "build:storybook": "storybook build",
     "start:playground": "npm run build && npm --prefix playground install && npm --prefix playground run dev",
     "start:storybook": "storybook dev -p 6006"

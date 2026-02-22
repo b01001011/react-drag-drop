@@ -1,6 +1,6 @@
 export {
+  type RddSensorConstructor,
   RddSensor,
-  RddSensorConstructor,
   RddSensorProps,
 } from './types';
 

@@ -1,4 +1,8 @@
 import {
+  getOwnerDocument
+} from '@react-drag-drop/utils';
+
+import {
   RddSensor,
   RddSensorProps
 } from '../types';
@@ -10,11 +14,14 @@ import {
 class RddPointerSensor extends RddSensor {
   static activationEventNames = [ 'onPointerDown' ] as RddSyntheticEventName[];
   
+  private document: Document;
+  
   constructor(props: RddSensorProps) {
     super();
     
     const { event } = props;
-    void event;
+    this.document = getOwnerDocument(event.target);
+    void this.document;
   }
 }
 

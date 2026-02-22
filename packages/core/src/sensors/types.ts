@@ -37,7 +37,7 @@ interface RddSensorConstructor {
 }
 
 export {
+  type RddSensorConstructor,
   RddSensor,
-  RddSensorConstructor,
   RddSensorProps,
 };

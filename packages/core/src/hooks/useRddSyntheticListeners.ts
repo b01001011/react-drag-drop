@@ -3,7 +3,7 @@ import {
 } from 'react';
 
 import { 
-  RddSensorConstructor
+  type RddSensorConstructor
 } from '../sensors';
 
 import {

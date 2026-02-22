@@ -25,7 +25,7 @@ import {
 } from '../../rdd-drag-events';
 
 import {
-  RddSensorConstructor,
+  type RddSensorConstructor,
   RddPointerSensor
 } from '../../sensors';
 
