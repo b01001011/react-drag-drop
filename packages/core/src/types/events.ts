@@ -9,7 +9,7 @@ interface RddDragEvent {
 interface RddDragEndEvent extends RddDragEvent {}
 interface RddDragStartEvent extends RddDragEvent {}
 
-interface RddEvent extends Event {
+interface RddNativeEvent extends Event {
   isConsumed: boolean;
 }
 
@@ -30,7 +30,7 @@ type RddSyntheticEventListenerProps = Record<string, (event: React.SyntheticEven
 export {
   type RddDragEndEvent,
   type RddDragStartEvent,
-  type RddEvent,
+  type RddNativeEvent,
   type RddSyntheticEventHandler,
   type RddSyntheticEventListener,
   type RddSyntheticEventListenerProps,

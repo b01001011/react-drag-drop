@@ -9,7 +9,7 @@ export {
 export {
   type RddDragEndEvent,
   type RddDragStartEvent,
-  type RddEvent,
+  type RddNativeEvent,
   type RddSyntheticEventHandler,
   type RddSyntheticEventListener,
   type RddSyntheticEventListenerProps,

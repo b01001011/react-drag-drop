@@ -14,17 +14,17 @@ interface RddSensorProps {
   // context: MutableRefObject<SensorContext>;
   event: Event;
 
-  onAbort(id: RddId): void;
-  onCancel(): void;
-  onEnd(): void;
-  onMove(coordinates: RddCoordinates): void;
-  onPending(
+  onDragAbort(id: RddId): void;
+  onDragCancel(): void;
+  onDragEnd(): void;
+  onDragMove(coordinates: RddCoordinates): void;
+  onDragPending(
     id: RddId,
     // constraint: PointerActivationConstraint,
     coordinates: RddCoordinates,
     offset?: RddCoordinates | undefined
   ): void;
-  onStart(coordinates: RddCoordinates): void;
+  onDragStart(coordinates: RddCoordinates): void;
 }
 
 abstract class RddSensor {

@@ -31,7 +31,7 @@ import {
 
 import {
   RddId,
-  RddEvent,
+  RddNativeEvent,
   RddSyntheticEventHandler
 } from '../../types';
 
@@ -86,7 +86,7 @@ const ReactDragDrop = memo(({
       Sensor: RddSensorConstructor
     ): RddSyntheticEventHandler => {
       return (event, activeDraggableId) => {
-        const nativeEvent = event.nativeEvent as RddEvent;
+        const nativeEvent = event.nativeEvent as RddNativeEvent;
         const activeDraggable = draggables.get(activeDraggableId);
 
         if (

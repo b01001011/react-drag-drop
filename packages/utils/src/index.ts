@@ -1,5 +1,6 @@
 export {
-  getOwnerDocument
+  getOwnerDocument,
+  getWindow
 } from './dom'
 
 export {
