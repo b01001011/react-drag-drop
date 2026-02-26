@@ -12,19 +12,19 @@ interface RddSensorProps {
   activeDraggableId: RddId;
   activeDraggable: RddDraggable;
   // context: MutableRefObject<SensorContext>;
-  event: Event;
+  nativeEvent: Event;
 
-  onDragAbort(id: RddId): void;
-  onDragCancel(): void;
-  onDragEnd(): void;
-  onDragMove(coordinates: RddCoordinates): void;
-  onDragPending(
+  onDragAbort: (id: RddId)=> void;
+  onDragCancel: ()=> void;
+  onDragEnd: () => void;
+  onDragMove: (coordinates: RddCoordinates) => void;
+  onDragPending: (
     id: RddId,
     // constraint: PointerActivationConstraint,
     coordinates: RddCoordinates,
     offset?: RddCoordinates | undefined
-  ): void;
-  onDragStart(coordinates: RddCoordinates): void;
+  ) => void;
+  onDragStart: (coordinates: RddCoordinates) => void;
 }
 
 abstract class RddSensor {

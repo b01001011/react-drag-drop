@@ -30,11 +30,11 @@ class RddPointerSensor extends RddSensor {
     super();
     
     this.props = props;
-    this.document = getOwnerDocument(props.event.target);
+    this.document = getOwnerDocument(props.nativeEvent.target);
 
     this.listenerManager = new RddEventListenerManager(this.document);
     this.documentListenerManager = new RddEventListenerManager(this.document);
-    this.windowListenerManager = new RddEventListenerManager(getWindow(props.event.target));
+    this.windowListenerManager = new RddEventListenerManager(getWindow(props.nativeEvent.target));
 
     this.onCancel = this.onCancel.bind(this);
     this.onEnd = this.onEnd.bind(this);
