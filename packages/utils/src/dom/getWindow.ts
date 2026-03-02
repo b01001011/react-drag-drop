@@ -1,7 +1,7 @@
 import {
   isNode,
   isWindow
-} from '../dom-validations';
+} from '../dom-validations'
 
 export function getWindow(target: EventTarget | null): typeof window {
   if (target == null) {

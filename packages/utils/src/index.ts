@@ -6,3 +6,7 @@ export {
 export {
   isWindow
 } from './dom-validations'
+
+export {
+  useValueRef
+} from './hooks/useValueRef'

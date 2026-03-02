@@ -4,7 +4,7 @@ import {
   isNode,
   isSVGElement,
   isWindow
-} from '../dom-validations';
+} from '../dom-validations'
 
 function getOwnerDocument(target: EventTarget | null): Document {
   if (target == null) {
